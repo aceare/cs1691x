@@ -29,6 +29,8 @@ end
   still return true for all other flavors and for all non-JellyBean desserts).
 =end
 class JellyBean < Dessert
+  attr_accessor :flavor
+  
   def initialize(name, calories, flavor)
     super(name, calories)
     @flavor = flavor
@@ -54,5 +56,7 @@ end
   j2.calories = 100
   p j2.calories
   p j2.healthy?
+  p j2.delicious?
+  j2.flavor = "ok"
   p j2.delicious?
 =end
