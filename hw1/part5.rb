@@ -74,7 +74,10 @@ class Class
   end
 end
 
-begin
+
+# Application Test/Demo
+
+=begin
 class Foo
     attr_accessor_with_history :foo
     attr_accessor_with_history :bar
@@ -84,7 +87,7 @@ class SomeOtherClass
     attr_accessor_with_history :foo
     attr_accessor_with_history :bar
 end
-end
+=end
 
 =begin
 f = Foo.new
@@ -110,7 +113,7 @@ p s.bar_history
 p f.bar_history
 =end
 
-begin
+=begin
 f = Foo.new
 f.bar=1
 f.bar=8
@@ -125,7 +128,7 @@ f.bar=18
 #f.foo=1800
 p f.bar_history
 p f.foo_history
-end
+=end
 
 =begin
     f = Foo.new
