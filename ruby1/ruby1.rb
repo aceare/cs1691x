@@ -120,6 +120,16 @@ end.select {|f| f.match /^a/}
 p 't is ' + t.to_s
 
 # metaprogramming: Dynamically add method hello() to class Foo, accessing instance variables
-#a = %q{def hello() "Hello there #{@foo} #{@bar}!" end}
-#p Foo.module_eval(a)
+class Foo
+    attr_accessor :foo
+    attr_accessor :bar
+    
+    def initialize(foo, bar) @foo=foo; @bar=bar end
+end
 
+a = %q{def hello() "Hello there #{@foo} #{@bar}!" end}
+f = Foo.new(1, 2)
+Foo.module_eval(a)  # same as Foo.class_eval(a) 
+p f.hello
+ff = Foo.new(11, 22)
+p ff.hello
