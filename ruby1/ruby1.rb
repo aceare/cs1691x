@@ -119,3 +119,7 @@ t = ['banana', 'anana', 'naan'].map do |food|
 end.select {|f| f.match /^a/}
 p 't is ' + t.to_s
 
+# metaprogramming: Dynamically add method hello() to class Foo, accessing instance variables
+#a = %q{def hello() "Hello there #{@foo} #{@bar}!" end}
+#p Foo.module_eval(a)
+
