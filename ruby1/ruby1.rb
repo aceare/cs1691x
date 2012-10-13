@@ -1,3 +1,24 @@
+def add(*numbers)
+  sum = numbers.shift
+  numbers.inject(sum) { |sum, num| sum + num }
+end
+
+def subtract(*numbers)
+  sub = numbers.shift
+  numbers.inject(sub) { |sub, num| sub - num }
+end
+
+def calculate(*args)
+  # if the last argument is a Hash, extract it 
+  # otherwise create an empty Hash
+  opts = args[-1].is_a?(Hash) ? args.pop : {}
+  opts[:add] = true if opts.empty?
+  return add(*args) if opts[:add]
+  return subtract(*args) if opts[:subtract]
+end
+
+
+
 # Singleton, class variable, class method
 class Logger
   private_class_method :new
